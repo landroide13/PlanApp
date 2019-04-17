@@ -1,0 +1,14 @@
+body{
+  padding: 0;
+  margin: 0;
+  background: #ccc
+}
+
+form{
+  padding: 20px;
+  margin-top: 60px;
+}
+
+form button, form h5{
+  margin: 20px 0;
+}
