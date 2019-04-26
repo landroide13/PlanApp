@@ -24,7 +24,7 @@ function Nav() {
 }
 
 const mapStateToProps = state =>{
-  console.log(state)
+  // console.log(state)
   return{
 
   }
