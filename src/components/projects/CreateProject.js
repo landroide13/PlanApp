@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createProject } from '../../store/actions/projectActons'
-
+import { Redirect } from 'react-router-dom'
+ 
 class CreateProject extends Component {
   state = {
     title: '',
@@ -20,6 +21,10 @@ class CreateProject extends Component {
 
   render() {
 
+    const { auth } = this.props
+
+    if(!auth.uid) return <Redirect to="/login" />
+
     return (
 
       <React.Fragment>
@@ -36,7 +41,7 @@ class CreateProject extends Component {
               <textarea className="materialize-textarea" id="desc" onChange={this.handleChange} />
             </div>
             <div className="input-field">
-              <button className="btn green lighten-1 z-depth-0">Submit</button>
+              <button className="btn green lighten-1 z-depth-0">Create</button>
             </div>
           
           </form>
@@ -47,6 +52,13 @@ class CreateProject extends Component {
   }
 }
 
+const mapStateToProps = state =>{
+  return{
+    auth: state.firebase.auth
+  }
+}
+
+
 const mapDispatchToProps = dispacth =>{
   return{
     createProject: (project) => dispacth(createProject(project))
@@ -55,4 +67,4 @@ const mapDispatchToProps = dispacth =>{
 
 
 
-export default connect(null, mapDispatchToProps)(CreateProject)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateProject)
