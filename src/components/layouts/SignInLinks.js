@@ -10,8 +10,8 @@ function SignInLinks(props) {
     <React.Fragment>
       <ul className="right">
         <li><NavLink to="/create">New Project</NavLink></li>
-        <li><a onClick={props.signOut}>LogOut</a></li>
-        <li><NavLink to="/" className="btn btn-floating grey lighten-1">JD</NavLink></li>
+        <li><a href="/" onClick={props.signOut}>LogOut</a></li>
+        <li><NavLink to="/" className="btn btn-floating blue lighten-1">{ props.profile.initials }</NavLink></li>
       </ul>
       
     </React.Fragment>

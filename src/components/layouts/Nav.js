@@ -6,9 +6,9 @@ import { connect } from 'react-redux'
 
 function Nav(props) {
 
-  const { auth } = props
+  const { auth, profile } = props
 
-  const link = auth.uid ? <SignInLinks /> : <SignOutLinks />
+  const link = auth.uid ? <SignInLinks profile={profile} /> : <SignOutLinks />
 
   return (
     <React.Fragment>
@@ -24,12 +24,13 @@ function Nav(props) {
 
 
   )
-} // 29
+} 
 
 const mapStateToProps = state =>{
-  // console.log(state)
+  
   return{
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    profile: state.firebase.profile
   }
 }
 
